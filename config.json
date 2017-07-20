@@ -1,0 +1,6 @@
+{
+  "GCLOUD_PROJECT": "connected-174316",
+  "DATA_BACKEND": "mongodb",
+  "MONGO_URL": "mongodb://connectedstaff:connected11235@ds111103.mlab.com:11103/connected",
+  "MONGO_COLLECTION": "submissions"
+}
