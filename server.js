@@ -24,7 +24,19 @@ var options = {
 };
 
 
-
+var dboptions = { 
+  server: { 
+    socketOptions: { 
+      keepAlive: 300000, connectTimeoutMS: 30000 
+    } 
+  }, 
+  replset: { 
+    socketOptions: { 
+      keepAlive: 300000, 
+      connectTimeoutMS : 30000 
+    } 
+  } 
+};
 
 // create connection to db
 
@@ -33,15 +45,8 @@ var DB =(process.env.NODE_ENV)? DEVDB:REALDB;
 console.log(DB+' environment')
 
 
-var connectWithRetry = function() {
-  return mongoose.createConnection(DB, function(err) {
-    if (err) {
-      console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
-      setTimeout(connectWithRetry, 5000);
-    }
-  });
-};
-var db = connectWithRetry();
+
+var db =mongoose.createConnection(DB,dboptions);
 
 var Submission=db.model('Submission', submissionSchema);
 
