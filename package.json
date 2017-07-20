@@ -2,7 +2,7 @@
   "name": "connected",
   "version": "1.0.0",
   "description": "Music label website",
-  "start": "server.js",
+  "start": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy":"NODE_ENV=production node server.js"
