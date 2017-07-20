@@ -1,6 +1,6 @@
 //Constants
-var DEVDB='mongodb://localhost:27017/connected';
-var REALDB="mongodb://connectedstaff:connected11235@ds111103.mlab.com:11103/connected"
+//var DEVDB='mongodb://localhost:27017/connected';
+//var REALDB="mongodb://connectedstaff:connected11235@ds111103.mlab.com:11103/connected"
 
 
 
