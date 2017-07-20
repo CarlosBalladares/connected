@@ -1,7 +1,6 @@
 //Constants
 var DEVDB='mongodb://localhost/connected';
 var REALDB="mongodb://connectedstaff:connected11235@ds111103.mlab.com:11103/connected"
-var env = process.env.NODE_ENV|| 'dev';
 
 
 
@@ -29,8 +28,10 @@ var options = {
 
 // create connection to db
 
-console.log("loading "+env+" environment");
-var DB =(env ==='dev')? DEVDB:REALDB;
+var DB =(process.env.NODE_ENV)? DEVDB:REALDB;
+
+console.log(DB+' environment')
+
 var db =mongoose.createConnection(DB);
 
 var Submission=db.model('Submission', submissionSchema);
@@ -85,6 +86,6 @@ function processSubmission(req, res){
 
 app.post('/submission', processSubmission);
 
-http.listen(3000, function () {
-	console.log('Example app listening on port 3000!');	  
+http.listen(8080, function () {
+	console.log('Example app listening on port 8080!');	  
 });

@@ -5,7 +5,7 @@
   "start": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy":"NODE_ENV=production && node server.js"
+    "deploy":"NODE_ENV=production node server.js"
   },
   "author": "Carlos B",
   "license": "ISC",
