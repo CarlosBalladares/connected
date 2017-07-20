@@ -1,6 +1,6 @@
 //Constants
 var DEVDB='mongodb://localhost/connected';
-var REALDB="mongodb://connectedstaff:connected11235=@ds111103.mlab.com:11103/connected"
+var REALDB="mongodb://connectedstaff:connected11235@ds111103.mlab.com:11103/connected"
 var env = process.env.NODE_ENV|| 'dev';
 
 
