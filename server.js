@@ -41,13 +41,16 @@ var dboptions = {
 // create connection to db
 
 //var DB =(process.env.NODE_ENV)? DEVDB:REALDB;
-var DB =DEVDB;
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/HelloMongoose';
 
-console.log(DB+' environment')
+console.log(uristring+' environment')
 
 
 
-var db =mongoose.createConnection(DB);
+var db =mongoose.createConnection(uristring);
 
 var Submission=db.model('Submission', submissionSchema);
 
