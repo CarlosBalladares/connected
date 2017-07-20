@@ -1,5 +1,5 @@
 //Constants
-var DEVDB='mongodb://localhost/connected';
+var DEVDB='mongodb://localhost:27017/connected';
 var REALDB="mongodb://connectedstaff:connected11235@ds111103.mlab.com:11103/connected"
 
 
@@ -40,7 +40,8 @@ var dboptions = {
 
 // create connection to db
 
-var DB =(process.env.NODE_ENV)? DEVDB:REALDB;
+//var DB =(process.env.NODE_ENV)? DEVDB:REALDB;
+var DB =DEVDB;
 
 console.log(DB+' environment')
 
