@@ -32,7 +32,16 @@ var DB =(process.env.NODE_ENV)? DEVDB:REALDB;
 
 console.log(DB+' environment')
 
-var db =mongoose.createConnection(DB);
+
+var connectWithRetry = function() {
+  return mongoose.createConnection(DB, function(err) {
+    if (err) {
+      console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
+      setTimeout(connectWithRetry, 5000);
+    }
+  });
+};
+var db = connectWithRetry();
 
 var Submission=db.model('Submission', submissionSchema);
 
