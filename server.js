@@ -50,7 +50,7 @@ console.log(uristring+' environment')
 
 
 
-var db =mongoose.createConnection(uristring);
+var db =mongoose.connect(uristring);
 
 var Submission=db.model('Submission', submissionSchema);
 
@@ -58,17 +58,17 @@ process.on('exit',function(){
     db.close();
 });
 
-db.on('error', function(err){
-    console.log(err);
-});
+// mongoose.on('error', function(err){
+//     console.log(err);
+// });
 
-db.on('connected', function(){
-	console.log('app connected')
-})
+// db.on('connected', function(){
+// 	console.log('app connected')
+// })
 
-db.on('disconnected', function(){
-	console.log('app disconnected')
-})
+// db.on('disconnected', function(){
+// 	console.log('app disconnected')
+// })
 
 //setup express app
 
