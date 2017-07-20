@@ -79,6 +79,7 @@ app.use(restResponse(options));
 
 app.use(express.static('public'))
 
+app.set('port', (process.env.PORT || 5000));
 
 
 
@@ -111,6 +112,6 @@ function processSubmission(req, res){
 
 app.post('/submission', processSubmission);
 
-http.listen(5000, function () {
+http.listen(app.get('port'), function () {
 	console.log('Example app listening on port 8080!');	  
 });
