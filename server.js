@@ -1,5 +1,9 @@
 //Constants
 var DEVDB='mongodb://localhost/connected';
+var REALDB="mongodb://connectedstaff:connected11235=@ds111103.mlab.com:11103/connected"
+var env = process.env.NODE_ENV|| 'dev';
+
+
 
 //Modules and initializaitions
 var express = require('express');
@@ -14,6 +18,7 @@ var restResponse = require('express-rest-response');
 var router = express.Router(); 
 var mailer= require('./mailer.js');
 
+
 var options = {
   showStatusCode: true,  
   showDefaultMessage: true  
@@ -23,7 +28,11 @@ var options = {
 
 
 // create connection to db
-var db =mongoose.createConnection(DEVDB);
+
+console.log("loading "+env+" environment");
+var DB =(env ==='dev')? DEVDB:REALDB;
+var db =mongoose.createConnection(DB);
+
 var Submission=db.model('Submission', submissionSchema);
 
 process.on('exit',function(){
