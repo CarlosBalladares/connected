@@ -46,7 +46,7 @@ console.log(DB+' environment')
 
 
 
-var db =mongoose.createConnection(DB,dboptions);
+var db =mongoose.createConnection(DB);
 
 var Submission=db.model('Submission', submissionSchema);
 
@@ -58,6 +58,13 @@ db.on('error', function(err){
     console.log(err);
 });
 
+db.on('connected', function(){
+	console.log('app connected')
+})
+
+db.on('disconnected', function(){
+	console.log('app disconnected')
+})
 
 //setup express app
 
